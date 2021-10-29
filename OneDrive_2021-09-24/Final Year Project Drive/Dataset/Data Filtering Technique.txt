@@ -1,0 +1,3 @@
+Filter 1: Whose data is available throughout our sample period.
+Filter 2: Sortino Ratio of the stock must be greater than Sortino ratio of the Nifty Index. (Based on Excess Sortino Ratio) because sortino ratio
+is reward for unit of downside risk therefore stocks which are rewarding for the downside risk better than what market index can offer.
