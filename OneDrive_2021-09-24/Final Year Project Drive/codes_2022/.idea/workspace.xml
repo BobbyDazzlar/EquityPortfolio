@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b5f73a92-0f2b-47e1-a651-5f66e800b5e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/ACO/.ipynb_checkpoints/ACO_Optuna-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ACO/.ipynb_checkpoints/ACO_Optuna-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ACO/2Nov2021_ACO_Final.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ACO/2Nov2021_ACO_Final.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ACO/ACO_Optuna.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ACO/ACO_Optuna.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PSO/PARTICLE_SWARM_OPTIMIZATION_END_PRODUCT 01 Aug 2021.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/PSO/PARTICLE_SWARM_OPTIMIZATION_END_PRODUCT 01 Aug 2021.ipynb" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +66,17 @@
       <workItem from="1635413365723" duration="3503000" />
       <workItem from="1635522814336" duration="729000" />
       <workItem from="1635526479288" duration="1405000" />
+<<<<<<< Updated upstream
       <workItem from="1636960086309" duration="771000" />
       <workItem from="1637138414160" duration="53000" />
       <workItem from="1637338186313" duration="718000" />
       <workItem from="1637415312596" duration="598000" />
       <workItem from="1637566957808" duration="5432000" />
       <workItem from="1637603030591" duration="1385000" />
+=======
+      <workItem from="1636468557358" duration="24000" />
+      <workItem from="1636562153181" duration="323000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
