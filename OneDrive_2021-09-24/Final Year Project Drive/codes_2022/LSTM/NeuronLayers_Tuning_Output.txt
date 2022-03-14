@@ -1,0 +1,66 @@
+Best mean_squared_error So Far: 0.018904152636726696
+Total elapsed time: 01h 17m 34s
+Results summary
+Results in LayerNeurons/parameters
+Showing 10 best trials
+Objective(name='mean_squared_error', direction='min')
+Trial summary
+Hyperparameters:
+num_layers: 5
+units_0: 408
+learning_rate: 0.001
+units_1: 416
+units_2: 504
+units_3: 256
+units_4: 384
+units_5: 376
+units_6: 408
+Score: 0.018904152636726696
+Trial summary
+Hyperparameters:
+num_layers: 7
+units_0: 320
+learning_rate: 0.0001
+units_1: 48
+units_2: 32
+units_3: 32
+units_4: 32
+units_5: 32
+units_6: 32
+Score: 0.018992337087790172
+Trial summary
+Hyperparameters:
+num_layers: 6
+units_0: 168
+learning_rate: 0.0001
+units_1: 112
+units_2: 440
+units_3: 320
+units_4: 272
+units_5: 200
+units_6: 336
+Score: 0.01899299460152785
+Trial summary
+Hyperparameters:
+num_layers: 5
+units_0: 312
+learning_rate: 0.0001
+units_1: 280
+units_2: 64
+units_3: 280
+units_4: 368
+units_5: 128
+units_6: 352
+Score: 0.018993152305483818
+Trial summary
+Hyperparameters:
+num_layers: 7
+units_0: 240
+learning_rate: 0.0001
+units_1: 336
+units_2: 136
+units_3: 136
+units_4: 264
+units_5: 496
+units_6: 504
+Score: 0.018994143853584926
