@@ -5,7 +5,7 @@ import optuna
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-df = df.loc["2016-01-05":"2021-01-04"]  # Since 2016-01-01, 5y(1234rows till 2020-12-31)
+df = df.loc["2016-01-06":"2021-01-05"]  # Since 2016-01-01, 5y(1234rows till 2020-12-31)
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
 col = list(df.columns)
@@ -20,7 +20,7 @@ for i in range(len(df1)):
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-df = df.loc["2016-01-05":"2021-01-04"]
+df = df.loc["2016-01-06":"2021-01-05"]
 
 n50 = df
 

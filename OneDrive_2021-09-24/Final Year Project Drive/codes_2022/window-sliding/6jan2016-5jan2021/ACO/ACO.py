@@ -27,7 +27,7 @@ def number_of_years(y):  # calculates the number of years of the dataset
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-df = df.loc["2016-01-05": "2021-01-04"]
+df = df.loc["2016-01-06": "2021-01-05"]
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
 col = list(df.columns)
@@ -245,7 +245,7 @@ def antcolony_sharpe(ITERATIONS, Q, EVA_RATE, ANTS):
             for s in path:
                 pheromon[ant + 1][s] = pheromon[ant][s] * (1 - EVA_RATE) + Q * (fitness / sharpe_pbest)
 
-            # making sure that the updated pheromon adds upto 1
+            # making sure that the updated pheromone adds upto 1
             temp_pher = pheromon[ant + 1]
             weights = np.array(BALANCE(temp_pher))
             returns_temp = np.sum(returnsh.mean() * weights) * trading_days  # calculating annulaised portfolio return
