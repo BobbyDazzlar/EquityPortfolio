@@ -27,7 +27,9 @@ def number_of_years(y):  # calculates the number of years of the dataset
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-df = df.loc["2016-01-08": "2021-01-07"]
+start_date="2016-01-08"
+end_date="2021-01-07"
+df = df.loc[start_date: end_date]
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
 col = list(df.columns)
@@ -161,7 +163,7 @@ sharpe_study = optuna.create_study(direction='maximize')
 sharpe_study.optimize(objective, n_trials=100)
 
 sh_hptuning = sharpe_study.trials_dataframe()
-sh_hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
+sh_hptuning.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
 best = sharpe_study.best_params
 
 
@@ -283,8 +285,8 @@ sharpe_pc = pd.DataFrame(sharpe_portfolio)
 sharpe_optimal = sharpe_pc.iloc[sharpe_pc['Sharpe Ratio'].idxmax()]
 sharpe_optimal = pd.DataFrame(sharpe_optimal)
 
-sharpe_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
-sharpe_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
+sharpe_optimal.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
+sharpe_pc.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
 
 
 # Sortino
@@ -393,7 +395,7 @@ sortino_study = optuna.create_study(direction='maximize')
 sortino_study.optimize(objective, n_trials=100)
 
 hptuning = sortino_study.trials_dataframe()
-hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
+hptuning.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
 best = sortino_study.best_params
 
 ITERATIONS = int(best['ITERATIONS'])
@@ -509,6 +511,6 @@ sortino_pc = pd.DataFrame(sortino_portfolio)
 sortino_optimal = sortino_pc.iloc[sortino_pc['Sortino Ratio'].idxmax()]
 sortino_optimal = pd.DataFrame(sortino_optimal)
 
-sortino_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_optimal.csv")
+sortino_optimal.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sortino_optimal.csv")
 
-sortino_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sortino_portfolio.csv')
+sortino_pc.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/ACO_sortino_portfolio.csv')

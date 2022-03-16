@@ -3,7 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 df = pd.read_csv('n50.csv', parse_dates=['Date'], index_col='Date')
-df = df.loc["2016-01-08": "2021-01-07"]  # Since 2016-01-01, 5y(1238rows till 2020-12-31), + year 2021's rows
+start_date="2016-01-08"
+end_date="2021-01-07"
+df = df.loc[start_date: end_date]  # Since 2016-01-01, 5y(1238rows till 2020-12-31), + year 2021's rows
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
 
@@ -105,7 +107,7 @@ pc_sharpe_bottom10 = pc_sharpe.sort_values(by=['Sharpe Ratio'], ascending=False)
 
 sharpe_optimal_portfolio = pc_sharpe_top10.head(1)
 
-sharpe_optimal_portfolio.to_csv('MVO_Sharpe_Optimal.csv')
+sharpe_optimal_portfolio.to_csv('('+start_date+'_'+end_date+')'+'MVO_Sharpe_Optimal.csv')
 
 pc_sortino = pc.drop(columns=['Sharpe Ratio', 'Standard Deviation'])
 
@@ -119,4 +121,4 @@ pc_sortino_bottom10 = pc_sortino.sort_values(by=['Sortino Ratio'], ascending=Fal
 
 sortino_optimal_portfolio = pc_sortino_top10.head(1)
 
-sortino_optimal_portfolio.to_csv('MVO_Sortino_Optimal.csv')
+sortino_optimal_portfolio.to_csv('('+start_date+'_'+end_date+')'+'MVO_Sortino_Optimal.csv')
