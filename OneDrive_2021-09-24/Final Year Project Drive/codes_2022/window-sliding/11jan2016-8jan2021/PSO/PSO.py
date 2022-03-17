@@ -6,11 +6,9 @@ import optuna
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
 
-
-start_date="2016-01-11"
-end_date="2021-01-08"
-df = df.loc[start_date:end_date] # Since 2016-01-01, 5y(1234rows till 2020-12-31)
-
+start_date = "2016-01-11"
+end_date = "2021-01-08"
+df = df.loc[start_date:end_date]  # Since 2016-01-01, 5y(1234rows till 2020-12-31)
 
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
@@ -39,7 +37,7 @@ n50
 start_date = n50.index[0]  # date of first row in the dataset (datetime format)
 end_date = n50.index[len(n50) - 1]  # date of last row in the dataset  (datetime format)
 no_of_years = int((((
-                                end_date - start_date).days + 1) / 365))  # the difference give the number of total days (not trading days) over the total number of years in the dataset
+                            end_date - start_date).days + 1) / 365))  # the difference give the number of total days (not trading days) over the total number of years in the dataset
 
 close = []
 name = []
@@ -444,7 +442,7 @@ optimal_portfolio = sorted_sharpe.head(1)
 
 optimal_portfolio.T
 
-optimal_portfolio.T.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/PSO(sharpe)_optimal_portfolio.csv')
+optimal_portfolio.T.to_csv('/home/pn_kumar/Karthik/window-sliding/PSO(sharpe)_optimal_portfolio.csv')
 
 
 # SORTINO
@@ -762,4 +760,4 @@ sorted_sortino = sortino_pc.sort_values(by=['Sortino Ratio'], ascending=False)
 
 optimal_portfolio_sortino = sorted_sortino.head(1)
 
-optimal_portfolio_sortino.T.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/PSO(sortino)_optimal_portfolio.csv')
+optimal_portfolio_sortino.T.to_csv('/home/pn_kumar/Karthik/window-sliding/PSO(sortino)_optimal_portfolio.csv')
