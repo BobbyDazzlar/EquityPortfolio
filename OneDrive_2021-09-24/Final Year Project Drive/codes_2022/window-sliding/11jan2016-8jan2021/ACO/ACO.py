@@ -160,7 +160,7 @@ def objective(trial):
 
 
 sharpe_study = optuna.create_study(direction='maximize')
-sharpe_study.optimize(objective, n_trials=100)
+sharpe_study.optimize(objective, n_trials=50)
 
 sh_hptuning = sharpe_study.trials_dataframe()
 sh_hptuning.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
@@ -285,8 +285,8 @@ sharpe_pc = pd.DataFrame(sharpe_portfolio)
 sharpe_optimal = sharpe_pc.iloc[sharpe_pc['Sharpe Ratio'].idxmax()]
 sharpe_optimal = pd.DataFrame(sharpe_optimal)
 
-sharpe_optimal.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
-sharpe_pc.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
+sharpe_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
+sharpe_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
 
 
 # Sortino
@@ -392,10 +392,10 @@ def objective(trial):
 
 
 sortino_study = optuna.create_study(direction='maximize')
-sortino_study.optimize(objective, n_trials=100)
+sortino_study.optimize(objective, n_trials=50)
 
 hptuning = sortino_study.trials_dataframe()
-hptuning.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
+hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
 best = sortino_study.best_params
 
 ITERATIONS = int(best['ITERATIONS'])
