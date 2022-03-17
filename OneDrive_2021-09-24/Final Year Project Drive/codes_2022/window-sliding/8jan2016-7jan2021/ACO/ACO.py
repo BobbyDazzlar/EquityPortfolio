@@ -27,7 +27,9 @@ def number_of_years(y):  # calculates the number of years of the dataset
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-df = df.loc["2016-01-08": "2021-01-07"]
+start_date="2016-01-08"
+end_date="2021-01-07"
+df = df.loc[start_date: end_date]
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
 col = list(df.columns)
@@ -54,7 +56,6 @@ risk_free_rate = 0.0358  # initializing risk free rate that will be used in calc
 # (improved)
 
 stocks = df.shape[1]
-
 
 # Sharpe
 
@@ -158,7 +159,7 @@ def objective(trial):
 
 
 sharpe_study = optuna.create_study(direction='maximize')
-sharpe_study.optimize(objective, n_trials=100)
+sharpe_study.optimize(objective, n_trials=50)
 
 sh_hptuning = sharpe_study.trials_dataframe()
 sh_hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
@@ -390,7 +391,7 @@ def objective(trial):
 
 
 sortino_study = optuna.create_study(direction='maximize')
-sortino_study.optimize(objective, n_trials=100)
+sortino_study.optimize(objective, n_trials=50)
 
 hptuning = sortino_study.trials_dataframe()
 hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
