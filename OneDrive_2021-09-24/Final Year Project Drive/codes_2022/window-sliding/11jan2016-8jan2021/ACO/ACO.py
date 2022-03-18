@@ -25,7 +25,7 @@ def number_of_years(y):  # calculates the number of years of the dataset
     return ((q - p).days + 1) / 365
 
 
-df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
+df = pd.read_csv("n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
 start_date="2016-01-11"
 end_date="2021-01-08"
@@ -159,18 +159,18 @@ def objective(trial):
     return antcolony_tuning_sharpe(int(ITERATIONS), Q, EVA_RATE, int(ANTS))
 
 
-sharpe_study = optuna.create_study(direction='maximize')
-sharpe_study.optimize(objective, n_trials=50)
+#sharpe_study = optuna.create_study(direction='maximize')
+#sharpe_study.optimize(objective, n_trials=50)
 
-sh_hptuning = sharpe_study.trials_dataframe()
-sh_hptuning.to_csv('('+start_date+'_'+end_date+')'+"/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
-best = sharpe_study.best_params
+#sh_hptuning = sharpe_study.trials_dataframe()
+#sh_hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
+#best = sharpe_study.best_params
 
 
-ITERATIONS = int(best['ITERATIONS'])
-Q = best['Q']
-EVA_RATE = best['EVA_RATE']
-ANTS = best['ANTS']
+ITERATIONS = 180
+Q = 0.52106950
+EVA_RATE = 0.1697
+ANTS = 313
 
 
 global_warr_sortino = []
@@ -285,8 +285,8 @@ sharpe_pc = pd.DataFrame(sharpe_portfolio)
 sharpe_optimal = sharpe_pc.iloc[sharpe_pc['Sharpe Ratio'].idxmax()]
 sharpe_optimal = pd.DataFrame(sharpe_optimal)
 
-sharpe_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
-sharpe_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
+sharpe_optimal.to_csv('(' + start_date + '_' + end_date + ')' +"ACO_sharpe_optimal.csv")
+sharpe_pc.to_csv('(' + start_date + '_' + end_date + ')' +'ACO_sharpe_portfolio.csv')
 
 
 # Sortino
@@ -391,17 +391,14 @@ def objective(trial):
     return antcolony_tuning_sortino(int(ITERATIONS), Q, EVA_RATE, int(ANTS))
 
 
-sortino_study = optuna.create_study(direction='maximize')
-sortino_study.optimize(objective, n_trials=50)
+#sortino_study = optuna.create_study(direction='maximize')
+#sortino_study.optimize(objective, n_trials=50)
 
-hptuning = sortino_study.trials_dataframe()
-hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
-best = sortino_study.best_params
+#hptuning = sortino_study.trials_dataframe()
+#hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_hps.csv")
+#best = sortino_study.best_params
 
-ITERATIONS = int(best['ITERATIONS'])
-Q = best['Q']
-EVA_RATE = best['EVA_RATE']
-ANTS = int(best['ANTS'])
+
 
 global_warr_sortino = []
 sortino_portfolio_return = []
@@ -511,6 +508,6 @@ sortino_pc = pd.DataFrame(sortino_portfolio)
 sortino_optimal = sortino_pc.iloc[sortino_pc['Sortino Ratio'].idxmax()]
 sortino_optimal = pd.DataFrame(sortino_optimal)
 
-sortino_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_optimal.csv")
+sortino_optimal.to_csv('(' + start_date + '_' + end_date + ')' +"ACO_sortino_optimal.csv")
 
-sortino_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sortino_portfolio.csv')
+sortino_pc.to_csv('(' + start_date + '_' + end_date + ')' +'ACO_sortino_portfolio.csv')
