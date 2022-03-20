@@ -444,7 +444,7 @@ optimal_portfolio = sorted_sharpe.head(1)
 
 optimal_portfolio.T
 
-optimal_portfolio.T.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/PSO(sharpe)_optimal_portfolio.csv')
+optimal_portfolio.T.to_csv('/home/pn_kumar/Karthik/window-sliding/PSO(sharpe)_optimal_portfolio.csv')
 
 
 # SORTINO
@@ -762,4 +762,4 @@ sorted_sortino = sortino_pc.sort_values(by=['Sortino Ratio'], ascending=False)
 
 optimal_portfolio_sortino = sorted_sortino.head(1)
 
-optimal_portfolio_sortino.T.to_csv('('+start_date+'_'+end_date+')'+'/home/pn_kumar/Karthik/window-sliding/PSO(sortino)_optimal_portfolio.csv')
+optimal_portfolio_sortino.T.to_csv('/home/pn_kumar/Karthik/window-sliding/PSO(sortino)_optimal_portfolio.csv')
