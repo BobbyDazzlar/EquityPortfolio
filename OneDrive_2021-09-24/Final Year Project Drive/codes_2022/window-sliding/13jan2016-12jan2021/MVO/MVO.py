@@ -13,8 +13,7 @@ df.reset_index(drop=True, inplace=True)
 def number_of_years(y):  # calculates the number of years of the dataset
     p = y.index[0]  # date of first row in the dataset (datetime format)
     q = y.index[len(y) - 1]  # date of last row in the dataset  (datetime format)
-    return ((
-                        q - p).days + 1) / 365  # the difference give the number of total days (not trading days) over the total number of years in the dataset
+    return ((q - p).days + 1) / 365  # the difference give the number of total days (not trading days) over the total number of years in the dataset
 
 
 trading_days = len(df) / number_of_years(tdf)  # Trading days per year (automated)
