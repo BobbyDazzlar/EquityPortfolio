@@ -27,8 +27,8 @@ def number_of_years(y):  # calculates the number of years of the dataset
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-start_date = "2016-01-15"
-end_date = "2021-01-14"
+start_date = "2016-01-18"
+end_date = "2021-01-15"
 df = df.loc[start_date: end_date]
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)

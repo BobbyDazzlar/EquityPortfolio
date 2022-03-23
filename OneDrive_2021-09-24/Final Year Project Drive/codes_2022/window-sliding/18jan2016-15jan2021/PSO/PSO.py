@@ -7,8 +7,8 @@ df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['
                  index_col='Date')  # Importing Dataset
 
 
-start_date="2016-01-15"
-end_date="2021-01-14"
+start_date="2016-01-18"
+end_date="2021-01-15"
 df = df.loc[start_date:end_date] # Since 2016-01-01, 5y(1234rows till 2020-12-31)
 
 

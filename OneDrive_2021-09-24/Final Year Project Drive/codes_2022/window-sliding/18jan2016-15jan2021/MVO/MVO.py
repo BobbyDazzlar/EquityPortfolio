@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 df = pd.read_csv('n50.csv', parse_dates=['Date'], index_col='Date')
-start_date="2016-01-15"
-end_date="2021-01-14"
+start_date="2016-01-18"
+end_date="2021-01-15"
 df = df.loc[start_date: end_date]  # Since 2016-01-01, 5y(1238rows till 2020-12-31), + year 2021's rows
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
