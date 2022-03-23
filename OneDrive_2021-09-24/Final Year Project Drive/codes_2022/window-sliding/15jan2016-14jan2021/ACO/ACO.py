@@ -27,8 +27,8 @@ def number_of_years(y):  # calculates the number of years of the dataset
 
 df = pd.read_csv("/home/pn_kumar/Karthik/window-sliding/n50.csv", parse_dates=['Date'],
                  index_col='Date')  # Importing Dataset
-start_date="2016-01-15"
-end_date="2021-01-14"
+start_date = "2016-01-15"
+end_date = "2021-01-14"
 df = df.loc[start_date: end_date]
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
@@ -56,6 +56,7 @@ risk_free_rate = 0.0358  # initializing risk free rate that will be used in calc
 # (improved)
 
 stocks = df.shape[1]
+
 
 # Sharpe
 
@@ -165,12 +166,10 @@ sh_hptuning = sharpe_study.trials_dataframe()
 sh_hptuning.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_hps.csv")
 best = sharpe_study.best_params
 
-
 ITERATIONS = int(best['ITERATIONS'])
 Q = best['Q']
 EVA_RATE = best['EVA_RATE']
 ANTS = best['ANTS']
-
 
 global_warr_sortino = []
 global_war_sharpe = []
