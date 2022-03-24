@@ -508,6 +508,7 @@ for counter, symbol in enumerate(df.columns):
 sortino_pc = pd.DataFrame(sortino_portfolio)
 sortino_optimal = sortino_pc.iloc[sortino_pc['Sortino Ratio'].idxmax()]
 sortino_optimal = pd.DataFrame(sortino_optimal)
+sortino_optimal.loc[:, :] *= 100
 
 sortino_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_optimal.csv")
 

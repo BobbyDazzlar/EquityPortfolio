@@ -282,6 +282,8 @@ for counter, symbol in enumerate(df.columns):
 sharpe_pc = pd.DataFrame(sharpe_portfolio)
 sharpe_optimal = sharpe_pc.iloc[sharpe_pc['Sharpe Ratio'].idxmax()]
 sharpe_optimal = pd.DataFrame(sharpe_optimal)
+sharpe_optimal.loc[:, :] *= 100
+sharpe_optimal.loc[:, 'Sharpe Ratio'] /= 100
 
 sharpe_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
 sharpe_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
@@ -508,6 +510,8 @@ for counter, symbol in enumerate(df.columns):
 sortino_pc = pd.DataFrame(sortino_portfolio)
 sortino_optimal = sortino_pc.iloc[sortino_pc['Sortino Ratio'].idxmax()]
 sortino_optimal = pd.DataFrame(sortino_optimal)
+sortino_optimal.loc[:, :] *= 100
+sortino_optimal.loc[:, 'Sortino Ratio'] /= 100
 
 sortino_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sortino_optimal.csv")
 
