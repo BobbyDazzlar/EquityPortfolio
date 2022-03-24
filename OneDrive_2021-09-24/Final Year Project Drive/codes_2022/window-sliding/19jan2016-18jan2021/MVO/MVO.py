@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 df = pd.read_csv('n50.csv', parse_dates=['Date'], index_col='Date')
-start_date="2016-01-19"
-end_date="2021-01-18"
+start_date = "2016-01-19"
+end_date = "2021-01-18"
 df = df.loc[start_date: end_date]  # Since 2016-01-01, 5y(1238rows till 2020-12-31), + year 2021's rows
 tdf = df.copy()  # deep copy
 df.reset_index(drop=True, inplace=True)
@@ -13,7 +13,8 @@ df.reset_index(drop=True, inplace=True)
 def number_of_years(y):  # calculates the number of years of the dataset
     p = y.index[0]  # date of first row in the dataset (datetime format)
     q = y.index[len(y) - 1]  # date of last row in the dataset  (datetime format)
-    return ((q - p).days + 1) / 365  # the difference give the number of total days (not trading days) over the total number of years in the dataset
+    return ((
+                        q - p).days + 1) / 365  # the difference give the number of total days (not trading days) over the total number of years in the dataset
 
 
 trading_days = len(df) / number_of_years(tdf)  # Trading days per year (automated)
@@ -50,7 +51,7 @@ sortino = []  # initializing an empty list for portfolio sortino ratio
 
 def ratio(a, b, c):  # function to calculate ratio i.e. "(returns-(risk_free_rate))/deviation"
     return (
-                       a - c) / b  # a => annual return, c => risk_free_rate, b => deviation (standard for sharpe, semi for sortino)
+                   a - c) / b  # a => annual return, c => risk_free_rate, b => deviation (standard for sharpe, semi for sortino)
 
 
 for single_portfolio in range(num_portfolios):  # iterating forloop for 50000 times to generate 50000 portfolios
@@ -87,7 +88,7 @@ pc = pc * 100  # Converting everything to percentage
 pc['Sharpe Ratio'] = pc['Sharpe Ratio'] / 100  # leaving ratios as it is
 pc['Sortino Ratio'] = pc['Sortino Ratio'] / 100
 
-#pc.to_csv('portfolios_by_MV.csv')  # saving the portfolios data
+# pc.to_csv('portfolios_by_MV.csv')  # saving the portfolios data
 
 max_sharpe = pc['Sharpe Ratio'].max()  # Best optimised portfolio wrt sharpe ratio
 max_sharpe_portfolio = pc.loc[pc['Sharpe Ratio'] == max_sharpe]
@@ -98,11 +99,11 @@ pc_sharpe = pc.drop(columns=['Sortino Ratio', 'Semi-Deviation'])
 
 pc_sharpe_top10 = pc_sharpe.sort_values(by=['Sharpe Ratio'], ascending=False).head(10)
 
-#pc_sharpe_top10.to_csv('Sharpe_Top10_MV.csv')
+# pc_sharpe_top10.to_csv('Sharpe_Top10_MV.csv')
 
 pc_sharpe_bottom10 = pc_sharpe.sort_values(by=['Sharpe Ratio'], ascending=False).tail(10)
 
-#pc_sharpe_bottom10.to_csv('Sharpe_Bottom10_MV.csv')
+# pc_sharpe_bottom10.to_csv('Sharpe_Bottom10_MV.csv')
 
 sharpe_optimal_portfolio = pc_sharpe_top10.head(1)
 
@@ -112,11 +113,11 @@ pc_sortino = pc.drop(columns=['Sharpe Ratio', 'Standard Deviation'])
 
 pc_sortino_top10 = pc_sortino.sort_values(by=['Sortino Ratio'], ascending=False).head(10)
 
-#pc_sortino_top10.to_csv('Sortino_Top10_MV.csv')
+# pc_sortino_top10.to_csv('Sortino_Top10_MV.csv')
 
 pc_sortino_bottom10 = pc_sortino.sort_values(by=['Sortino Ratio'], ascending=False).tail(10)
 
-#pc_sortino_bottom10.to_csv('Sortino_Bottom10_MV.csv')
+# pc_sortino_bottom10.to_csv('Sortino_Bottom10_MV.csv')
 
 sortino_optimal_portfolio = pc_sortino_top10.head(1)
 
