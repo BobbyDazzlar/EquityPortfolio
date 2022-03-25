@@ -283,7 +283,7 @@ sharpe_pc = pd.DataFrame(sharpe_portfolio)
 sharpe_optimal = sharpe_pc.iloc[sharpe_pc['Sharpe Ratio'].idxmax()]
 sharpe_optimal = pd.DataFrame(sharpe_optimal)
 sharpe_optimal.loc[:, :] *= 100
-sharpe_optimal.loc[:, 'Sharpe Ratio'] /= 100
+
 
 sharpe_optimal.to_csv("/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_optimal.csv")
 sharpe_pc.to_csv('/home/pn_kumar/Karthik/window-sliding/ACO_sharpe_portfolio.csv')
