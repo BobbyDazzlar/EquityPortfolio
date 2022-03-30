@@ -1,9 +1,12 @@
 15jan2016-14jan2021
+weights
 expected returns 
 
 vs
 
-on 15jan2021
+on
+arr=[weights] 
+1jan2016-15jan2021
 realized returns-next day returns of the next trading day using weights of dynamic portfolio
 
 vs 
@@ -14,11 +17,16 @@ nifty returns
 
 
 
+
+
 static window
-1jan2016-31dec2020 used throughout entire 2021 and 2022 to generate expected returns
+1jan2016-31dec2020 
+weights
+used throughout entire 2021 and 2022 to generate expected returns
 
 vs
-
+[weights]
+1jan2016-jan2021
 realized returns
 
 vs 
