@@ -1,0 +1,20 @@
+static approach
+approach A -closing of today-closing of yesterday
+lookback - 3months
+
+1jan2016-31sept2020 aco mvo pso
+weights on
+1oct2020-31dec2020 -> 1jan2021
+5oct2020-1jan2021 -> 4jan2021
+6oct2021-
+same weights on 
+2oct2020-1jan2021 -> 2jan2021
+.
+.
+.
+x-y -> march2022
+
+
+
+LSTM-
+pause
