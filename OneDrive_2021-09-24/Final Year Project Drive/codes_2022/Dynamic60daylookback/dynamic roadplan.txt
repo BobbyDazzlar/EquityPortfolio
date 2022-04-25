@@ -1,0 +1,11 @@
+1.  Dynamic- base timeline,weights for each timeline
+2.  What to do for LSTM- lstm output is coming(prdicting for how many days)
+
+1 jan 2016 - 30 sep 2020: training
+
+1oct - 31 dec 2020: blank
+
+dynamic
+1 jan 2021 : using(opt weights of 30sep)--60lok(1oct - 31 dec 2020)
+2jan 2021: using (opt weigths of 2 jan2016  1 oct 2020) --- (2oct2020-1jan2021)
+4 jan 2021 : using (opt weights of 3 jan 2016- 2 oct 2020)---(3oct2020--2jan2021)
