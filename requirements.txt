@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+tensorflow
+optuna
+jupyter
+openpyxl
+keras-tuner
