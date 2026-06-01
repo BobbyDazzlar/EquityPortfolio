@@ -1,3 +1,22 @@
+*.ods
 
-*.ods
-*.ods
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE/editor files
+.idea/
+.vscode/
+.DS_Store
+
+# Local experiment outputs and logs
+*.log
+*.tmp
+*.bak
